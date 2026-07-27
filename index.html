@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Smart Todo Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-list-check"></i>
+
+            <h1>TaskFlow</h1>
+
+        </div>
+
+        <button id="themeBtn">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks..."
+        >
+
+    </div>
+
+
+
+    <!-- ================= ADD TASK ================= -->
+
+    <div class="add-task">
+
+        <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+        >
+
+        <input
+                type="date"
+                id="dueDate"
+        >
+
+        <select id="category">
+
+            <option value="Work">Work</option>
+
+            <option value="Personal">Personal</option>
+
+            <option value="Study">Study</option>
+
+            <option value="Shopping">Shopping</option>
+
+            <option value="Other">Other</option>
+
+        </select>
+
+        <select id="priority">
+
+            <option value="High">High</option>
+
+            <option value="Medium" selected>Medium</option>
+
+            <option value="Low">Low</option>
+
+        </select>
+
+        <button id="addBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filters">
+
+        <button class="filter active" data-filter="all">
+            All
+        </button>
+
+        <button class="filter" data-filter="pending">
+            Pending
+        </button>
+
+        <button class="filter" data-filter="completed">
+            Completed
+        </button>
+
+        <button class="filter" data-filter="high">
+            High Priority
+        </button>
+
+        <button class="filter" data-filter="today">
+            Today
+        </button>
+
+        <button class="filter" data-filter="overdue">
+            Overdue
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <section class="progress-section">
+
+        <div class="progress-info">
+
+            <span>Progress</span>
+
+            <span id="progressText">
+
+                0%
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div id="progressFill"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="card">
+
+            <h2 id="totalTasks">0</h2>
+
+            <p>Total</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="completedTasks">0</h2>
+
+            <p>Completed</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="pendingTasks">0</h2>
+
+            <p>Pending</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="overdueTasks">0</h2>
+
+            <p>Overdue</p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= TASK LIST ================= -->
+
+    <ul id="taskList"></ul>
+
+
+
+    <!-- ================= EMPTY STATE ================= -->
+
+    <div id="emptyState">
+
+        <i class="fa-regular fa-clipboard"></i>
+
+        <h3>No Tasks Yet</h3>
+
+        <p>Add your first task to get started.</p>
+
+    </div>
+
+
+
+</div>
+
+
+
+<!-- Toast Notifications -->
+
+<div id="toast"></div>
+
+
+
+<!-- Confetti -->
+
+<canvas id="confetti"></canvas>
+
+
+
+<!-- SortableJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+<!-- Canvas Confetti -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
